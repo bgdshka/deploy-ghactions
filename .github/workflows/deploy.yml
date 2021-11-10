@@ -6,6 +6,15 @@ on:
       - main
 
 jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Lighthouse on urls and validate with lighthouserc
+        uses: treosh/lighthouse-ci-action@v8
+        with:
+          urls: 'https://test-ghactions.herokuapp.com/'
+          configPath: './lighthouserc.json'
   build:
     runs-on: ubuntu-latest
     steps:
@@ -14,9 +23,6 @@ jobs:
       # - run: npm ci
       # - run: npm run build
       # Deploy
-        name: lighthouse check
-      - uses: ./.github/actions/lighthouse@main
-        name: deploy on heroku
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}

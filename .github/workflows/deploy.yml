@@ -14,7 +14,9 @@ jobs:
       # - run: npm ci
       # - run: npm run build
       # Deploy
-      - uses: .github/actions/lighthouse.yml
+        name: lighthouse check
+      - uses: ./.github/actions/lighthouse@main
+        name: deploy on heroku
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}

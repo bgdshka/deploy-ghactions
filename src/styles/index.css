@@ -1,9 +1,7 @@
 /* Global */
-
-/* @import 'box-model.css'; */
-/* @import 'variables.css'; */
+@import 'variables.css'; 
+@import 'grid/grid.css';
 
 /* Blocks */
-
 @import 'blocks/page.css';
-/* @import 'blocks/logo.css'; */
+

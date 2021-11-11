@@ -7,7 +7,7 @@
     "styles": "postcss src/styles/index.css --use postcss-import --use postcss-csso --no-map --output dist/styles/index.css",
     "build": "npm run html && npm run styles",
     "serve": "serve",
-    "eslint": "eslint src/**"
+    "eslint": "eslint src"
   },
   "devDependencies": {
     "@html-eslint/eslint-plugin": "^0.12.0",

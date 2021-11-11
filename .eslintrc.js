@@ -5,10 +5,6 @@ module.exports = {
         es2021: true,
     },
     extends: ["eslint:recommended"],
-    parserOptions: {
-        ecmaVersion: 2020,
-        sourceType: "module",
-    },
     plugins: ["@html-eslint"],
     overrides: [
         {

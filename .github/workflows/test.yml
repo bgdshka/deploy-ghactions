@@ -14,7 +14,7 @@ jobs:
         node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
       # Yarn cause eslint exit with 1, that mean error in npm. Yarn allows you to bypass this
       - uses: borales/actions-yarn@v2.3.0
         with:

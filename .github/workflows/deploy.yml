@@ -12,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       # Build project local
+      - run: npm install
       - run: npm run build
       # Lighthouse check local depoloy
       - uses: treosh/lighthouse-ci-action@v8

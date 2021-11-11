@@ -6,18 +6,8 @@ on:
       - main
 
 jobs:
-  lighthouse:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v8
-        with:
-          urls: 'https://test-ghactions.herokuapp.com/'
-          configPath: './lighthouserc.json'
-          uploadArtifacts: true # save results as an action artifacts
   build:
-    name: build and depoloy on heroku
+    name: build and deploy on heroku
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -25,6 +15,11 @@ jobs:
       # - run: npm ci
       # - run: npm run build
       # Deploy
+      - uses: treosh/lighthouse-ci-action@v8
+        with:
+          urls: 'https://test-ghactions.herokuapp.com/'
+          configPath: './lighthouserc.json'
+          uploadArtifacts: true # save results as an action artifacts
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
